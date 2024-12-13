@@ -5,11 +5,17 @@ namespace HelloWorld
     {
             static void Main(string[] args)
             {
-                    bool isMale = true;
-                    System.Console.WriteLine(isMale);
+                    Console.WriteLine("Hello, Welcome!");
 
-                    bool isShort = false;
-                    System.Console.WriteLine(isShort);
+                    Console.Write("Enter Your Name: ");
+                    string? name = Console.ReadLine();
+                    Console.Write("Enter Your Age: ");
+                    string? ageInput = Console.ReadLine();
+                    int age = Convert.ToInt32(ageInput);
+                    Console.Write($"{name} - {age}");
+
+                    if (age >= 18) Console.WriteLine(" - Entry Granted!");
+                    else Console.WriteLine(" - Entry Denied!");
             }
     }
 }

@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Globalization;
 namespace HelloWorld
 {
         class Program
@@ -14,14 +15,15 @@ namespace HelloWorld
                         double money = 10D / 3D;
                         double negativeMoney = -10D / 3D;
                         Console.WriteLine(money);
+                        Console.WriteLine(negativeMoney);
 
-                        // c# can format numeric input to a currency
-                        Console.WriteLine($"Currency Money: {money.ToString("C")}");  // Currency default
-                        Console.WriteLine($"Currency Money: {money.ToString("C1")}"); // Currency to 1dp
-                        Console.WriteLine($"Currency Money: {money.ToString("C2")}"); // Currency to 2dp
+                        // Get my currency
+                        Console.WriteLine(money.ToString("C", CultureInfo.CurrentCulture));
 
-                        // c# will even know to put negative sign before symbol
-                        Console.WriteLine($"Negative Money: {negativeMoney.ToString("C")}");
+                        // Set the currency
+                        Console.WriteLine(money.ToString("C", CultureInfo.CreateSpecificCulture("en-GB")));
+                        Console.WriteLine(money.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
+                        Console.WriteLine(negativeMoney.ToString("C", CultureInfo.CreateSpecificCulture("en-AU")));
                 }
         }
 }

@@ -5,28 +5,25 @@ namespace HelloWorld
         {
                 static void Main(string[] args)
                 {
-                        /** ASk the  user for the number
-                         * Prnit a times table
-                         */
-                        Console.WriteLine("Multiplications Table");
-                        Console.WriteLine("=====================");
-                        Console.Write("Enter Number: ");
-                        string? numInput = Console.ReadLine();
+                        Console.WriteLine("Fizzbuzz!");
+                        Console.WriteLine();
 
-                        bool success = int.TryParse(numInput, out int num);
-                        if (!success || num < 0)
+                        Console.Write("Enter The Range: ");
+                        string? rangeInput = Console.ReadLine();
+
+                        bool success = int.TryParse(rangeInput, out int range);
+                        if (!success || range <= 0)
                         {
-                                Console.WriteLine("Enter a Valid Number");
+                                Console.WriteLine("Invalid: Enter range > 0");
                                 return;
                         }
-                        for (int i = 0; i <= num; i++)
+
+                        for (int num = 1; num <= range; num++)
                         {
-                                for (int j = 0; j <= num; j++)
-                                {
-                                        int product = i * j;
-                                        Console.Write($" {product:000.}");
-                                }
-                                Console.WriteLine();
+                                if (num % 3 == 0 && num % 5 == 0) Console.WriteLine("FizzBuzz");
+                                else if (num % 3 == 0) Console.WriteLine("Fizz");
+                                else if (num % 5 == 0) Console.WriteLine("Buzz");
+                                else Console.WriteLine(num);
                         }
                 }
         }

@@ -3,20 +3,33 @@ namespace HelloWorld
 {
         class Program
         {
+                /**
+                 * Password Checker
+                 * Usr enters password twice
+                 * Check for empty password inputs
+                 * Check if they are same 'Passwords match'
+                 *          else 'Passwords do not match'
+                 */
                 static void Main(string[] args)
                 {
-                        /**
-                         * Print user input
-                         * Then repeat in rev
-                         */
-                        Console.WriteLine("Input Your Text: ");
-                        string? userInput = Console.ReadLine();
+                        Console.WriteLine("Password Fetcher");
+                        Console.WriteLine("-------------------------");
 
-                        if (string.IsNullOrEmpty(userInput)) return;
+                        Console.Write("Enter your password: ");
+                        string? pass1 = Console.ReadLine();
 
-                        for (int i = userInput.Length - 1; i >= 0; i--)
-                                Console.Write(userInput[i]);
-                        Console.Write('\n');
+                        Console.Write("Repeat the password: ");
+                        string? pass2 = Console.ReadLine();
+
+                        if (string.IsNullOrEmpty(pass1)
+                                        || string.IsNullOrEmpty(pass2))
+                        {
+                                Console.WriteLine("Please enter a password");
+                                return;
+                        }
+                        if (!pass1.Equals(pass2))
+                                Console.WriteLine(@"Passwords don't match");
+                        else Console.WriteLine("Success: Password Set!");
                 }
         }
 }

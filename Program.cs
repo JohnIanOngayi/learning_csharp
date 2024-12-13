@@ -5,26 +5,12 @@ namespace HelloWorld
         {
                 static void Main(string[] args)
                 {
-                        Console.WriteLine("Fizzbuzz!");
-                        Console.WriteLine();
+                        string message = "C# is awesome!";
 
-                        Console.Write("Enter The Range: ");
-                        string? rangeInput = Console.ReadLine();
+                        for (int i = 0; i < message.Length; i++) Console.Write(message[i]);
+                        Console.Write('\n');
 
-                        bool success = int.TryParse(rangeInput, out int range);
-                        if (!success || range <= 0)
-                        {
-                                Console.WriteLine("Invalid: Enter range > 0");
-                                return;
-                        }
-
-                        for (int num = 1; num <= range; num++)
-                        {
-                                if (num % 3 == 0 && num % 5 == 0) Console.WriteLine("FizzBuzz");
-                                else if (num % 3 == 0) Console.WriteLine("Fizz");
-                                else if (num % 5 == 0) Console.WriteLine("Buzz");
-                                else Console.WriteLine(num);
-                        }
+                       Console.WriteLine(message.Contains('i'));
                 }
         }
 }

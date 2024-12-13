@@ -5,12 +5,18 @@ namespace HelloWorld
         {
                 static void Main(string[] args)
                 {
-                        string message = "C# is awesome!";
+                        /**
+                         * Print user input
+                         * Then repeat in rev
+                         */
+                        Console.WriteLine("Input Your Text: ");
+                        string? userInput = Console.ReadLine();
 
-                        for (int i = 0; i < message.Length; i++) Console.Write(message[i]);
+                        if (string.IsNullOrEmpty(userInput)) return;
+
+                        for (int i = userInput.Length - 1; i >= 0; i--)
+                                Console.Write(userInput[i]);
                         Console.Write('\n');
-
-                       Console.WriteLine(message.Contains('i'));
                 }
         }
 }

@@ -5,28 +5,27 @@ namespace HelloWorld
     {
             static void Main(string[] args)
             {
-                    int age = 23;
+                    string name = "Aba";
+                    Console.WriteLine(name);
+
+                    char letter = 'A';
+                    Console.WriteLine(letter);
+
+                    string textAge = "23";
+                    int age = Convert.ToInt32(textAge);
                     Console.WriteLine(age);
-                    Console.WriteLine(int.MaxValue);
-                    Console.WriteLine(int.MinValue);
-                    Console.WriteLine();
 
-                    long bigNumber = 900000000000L;
+                    string textBigNumber = "9000000000000000000";
+                    long bigNumber = Convert.ToInt64(textBigNumber);
                     Console.WriteLine(bigNumber);
-                    Console.WriteLine(long.MaxValue);
-                    Console.WriteLine(long.MinValue);
-                    Console.WriteLine();
 
-                    double negative = -44.5D;
+                    string textNegative = "-44.5";
+                    double negative = Convert.ToDouble(textNegative);
                     Console.WriteLine(negative);
-                    Console.WriteLine(double.MaxValue);
-                    Console.WriteLine(double.MinValue);
-                    Console.WriteLine();
 
-                    decimal average = 14.99M;
-                    float gpa = 3.5F;
-                    Console.WriteLine(average);
-                    Console.WriteLine(gpa);
+                    string textPrecision = "5.00001";
+                    float precision = Convert.ToSingle(textPrecision);
+                    Console.WriteLine(textPrecision);
             }
     }
 }

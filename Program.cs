@@ -3,35 +3,32 @@ namespace HelloWorld
 {
     class Program
     {
+        /**
+         * Create two lists
+         * Loop from o-20
+         *  if no is even add to evenList
+         *  if no is odd add to oddList
+         *  Print both lists
+         */
         static void Main(string[] args)
         {
-            Dictionary<int, string> names = new Dictionary<int, string>()
-            {
-                { 1, "Leonidas" },
-                { 2, "Leonidas II" },
-                { 3, "Leonidas III" },
-            };
+            List<int> evenList = new List<int>();
+            List<int> oddList = new List<int>();
 
-            foreach (KeyValuePair<int, string> item in names)
-                Console.WriteLine($"{item.Key} - {item.Value}");
-
-            Console.WriteLine("Try and find ID in Dict: ");
-            Console.WriteLine("Which ID Do You Want? ");
-            string? idInput = Console.ReadLine();
-
-            bool isNum = int.TryParse(idInput, out int id);
-            if (!isNum || id < 0)
+            for (int i = 0; i <= 20; i++)
             {
-                Console.WriteLine("Please Enter A Valid ID");
-                return;
-            }
-            else
-            {
-                if (names.TryGetValue(id, out string? name))
-                    Console.WriteLine($"ID {id} - {name}");
+                int rem = i % 2;
+                if (rem == 0)
+                    evenList.Add(i);
                 else
-                    Console.WriteLine($"ID {id} no exista!");
+                    oddList.Add(i);
             }
+            Console.Write("Printing evenList:");
+            foreach (var item in evenList)
+                Console.Write($" {item}");
+            Console.Write("\nPrinting oddList: ");
+            foreach (var item in oddList)
+                Console.Write($" {item}");
         }
     }
 }

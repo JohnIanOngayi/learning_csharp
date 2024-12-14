@@ -4,31 +4,37 @@ namespace HelloWorld
     class Program
     {
         /**
-         * Create two lists
-         * Loop from o-20
-         *  if no is even add to evenList
-         *  if no is odd add to oddList
-         *  Print both lists
+         * Fetch two integers from user (num, count)
+         * Create int array that contains first <count> multiples of <num>
+         * Print the array
          */
         static void Main(string[] args)
         {
-            List<int> evenList = new List<int>();
-            List<int> oddList = new List<int>();
-
-            for (int i = 0; i <= 20; i++)
+            Console.WriteLine("Multiple Generator\n");
+            Console.Write("no. to generate multiples for: ");
+            string? numInput = Console.ReadLine();
+            bool numIsNum = int.TryParse(numInput, out int num);
+            if (!numIsNum)
             {
-                int rem = i % 2;
-                if (rem == 0)
-                    evenList.Add(i);
-                else
-                    oddList.Add(i);
+                Console.WriteLine("Please Enter Valid Integer!");
+                return;
             }
-            Console.Write("Printing evenList:");
-            foreach (var item in evenList)
-                Console.Write($" {item}");
-            Console.Write("\nPrinting oddList: ");
-            foreach (var item in oddList)
-                Console.Write($" {item}");
+
+            Console.Write("count of multiples to generate: ");
+            string? countInput = Console.ReadLine();
+            bool countIsNum = int.TryParse(countInput, out int count);
+            if (!countIsNum)
+            {
+                Console.WriteLine("Please Enter Valid Integer!");
+                return;
+            }
+
+            int[] multiples = new int[count];
+            for (int i = 0; i < count; i++)
+                multiples[i] = num * (i + 1);
+
+            foreach (var item in multiples)
+                Console.WriteLine(item);
         }
     }
 }

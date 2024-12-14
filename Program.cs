@@ -5,51 +5,19 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int[] decimalNumbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            Console.Write("Enter positive one digit decimal to search: ");
-            string? searchInput = Console.ReadLine();
-            if (string.IsNullOrEmpty(searchInput))
-            {
-                Console.WriteLine("Please enter a number");
-                return;
-            }
-            bool isNum = int.TryParse(searchInput, out int num);
-            if (!isNum || num < 0)
-            {
-                Console.WriteLine("Please enter positive one digit decimal");
-                return;
-            }
-
-            int index = Array.IndexOf(decimalNumbers, num);
-            if (index == -1)
-                Console.WriteLine("Not Found");
-            else
-                Console.WriteLine($"Digit {num} - Index: {index}");
-
             int[] numbers = new int[3] { 1, 2, 3 };
-            Console.WriteLine($"Array Sum: {numbers.Sum()}");
 
-            Array.Reverse(numbers);
-            Console.Write("Reversed Members:");
-            foreach (int mem in numbers)
-                Console.Write($" {mem}");
-            Console.WriteLine();
+            List<int> listNumbers = new List<int>() { 1, 2, 3 };
+            foreach (var item in listNumbers)
+                Console.WriteLine(item);
 
-            Console.Write("Array Members:");
-            foreach (int mem in numbers)
-                Console.Write($" {mem}");
-            Console.WriteLine();
+            List<int> listNumbers2 = new List<int>(numbers);
+            foreach (var item in listNumbers2)
+                Console.WriteLine(item);
 
-            int[] randos = new int[] { 3, 4, 5, 9, 4, 2 };
-            Console.Write("Random Members:");
-            foreach (int mem in randos)
-                Console.Write($" {mem}");
-            Console.WriteLine();
-
-            Array.Sort(randos);
-            Console.Write("Sorted Members:");
-            foreach (int mem in randos)
-                Console.Write($" {mem}");
+            Console.WriteLine("Using List Count - since Length attr no exista");
+            for (int i = 0; i < listNumbers2.Count; i++)
+                Console.WriteLine($"Index {i} - {listNumbers2[i]}");
         }
     }
 }

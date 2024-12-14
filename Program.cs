@@ -5,19 +5,33 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[3] { 1, 2, 3 };
+            Dictionary<int, string> names = new Dictionary<int, string>()
+            {
+                { 1, "Leonidas" },
+                { 2, "Leonidas II" },
+                { 3, "Leonidas III" },
+            };
 
-            List<int> listNumbers = new List<int>() { 1, 2, 3 };
-            foreach (var item in listNumbers)
-                Console.WriteLine(item);
+            foreach (KeyValuePair<int, string> item in names)
+                Console.WriteLine($"{item.Key} - {item.Value}");
 
-            List<int> listNumbers2 = new List<int>(numbers);
-            foreach (var item in listNumbers2)
-                Console.WriteLine(item);
+            Console.WriteLine("Try and find ID in Dict: ");
+            Console.WriteLine("Which ID Do You Want? ");
+            string? idInput = Console.ReadLine();
 
-            Console.WriteLine("Using List Count - since Length attr no exista");
-            for (int i = 0; i < listNumbers2.Count; i++)
-                Console.WriteLine($"Index {i} - {listNumbers2[i]}");
+            bool isNum = int.TryParse(idInput, out int id);
+            if (!isNum || id < 0)
+            {
+                Console.WriteLine("Please Enter A Valid ID");
+                return;
+            }
+            else
+            {
+                if (names.TryGetValue(id, out string? name))
+                    Console.WriteLine($"ID {id} - {name}");
+                else
+                    Console.WriteLine($"ID {id} no exista!");
+            }
         }
     }
 }

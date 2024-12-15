@@ -3,38 +3,31 @@ namespace HelloWorld
 {
     class Program
     {
-        /**
-         * Fetch two integers from user (num, count)
-         * Create int array that contains first <count> multiples of <num>
-         * Print the array
-         */
         static void Main(string[] args)
         {
-            Console.WriteLine("Multiple Generator\n");
-            Console.Write("no. to generate multiples for: ");
-            string? numInput = Console.ReadLine();
-            bool numIsNum = int.TryParse(numInput, out int num);
-            if (!numIsNum)
+            bool isNum = customIntTryParse("25", out int num);
+            Console.WriteLine($"Integer 25: {isNum} - Output {num}");
+
+            bool isChar = customIntTryParse("tre", out num);
+            Console.WriteLine($"String tre: {isChar} - Output {num}");
+
+            bool isZero = customIntTryParse("0", out num);
+            Console.WriteLine($"Integer 0: {isZero} - Output {num}");
+        }
+
+        static bool customIntTryParse(string input, out int output)
+        {
+            try
             {
-                Console.WriteLine("Please Enter Valid Integer!");
-                return;
+                int number = Convert.ToInt32(input);
+                output = number;
+                return true;
             }
-
-            Console.Write("count of multiples to generate: ");
-            string? countInput = Console.ReadLine();
-            bool countIsNum = int.TryParse(countInput, out int count);
-            if (!countIsNum)
+            catch (Exception)
             {
-                Console.WriteLine("Please Enter Valid Integer!");
-                return;
+                output = 0;
+                return false;
             }
-
-            int[] multiples = new int[count];
-            for (int i = 0; i < count; i++)
-                multiples[i] = num * (i + 1);
-
-            foreach (var item in multiples)
-                Console.WriteLine(item);
         }
     }
 }
